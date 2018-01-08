@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Inserción Masiva - Archivo Excel</title>
+</head>
+<body>
+
+	<form th:object="${excel}" th:action="@{/inscripcion}" method="post" enctype="multipart/form-data">
+	
+		<input th:field="*{nombre}" type="file" />
+		
+		<small th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></small>
+		
+		<input type="submit" value="Cargar"/>
+		
+	</form>
+	
+</body>
+</html>

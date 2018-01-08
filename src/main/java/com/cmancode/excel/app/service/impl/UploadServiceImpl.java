@@ -6,10 +6,12 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.UUID;
 
+import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.cmancode.excel.app.service.IUploadService;
 
+@Service
 public class UploadServiceImpl implements IUploadService {
 
 	@Override

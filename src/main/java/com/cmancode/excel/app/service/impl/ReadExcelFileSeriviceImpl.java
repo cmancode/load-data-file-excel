@@ -49,8 +49,9 @@ public class ReadExcelFileSeriviceImpl implements IReadExcelFileService {
 		Iterator<Row> filas = hoja.iterator();
 		int k = 0;
 		while(filas.hasNext()) {
+			Row row = filas.next();
 			if(k > 0) {
-				List<Cell> celdas = IteratorUtils.toList(filas.next().iterator());
+				List<Cell> celdas = IteratorUtils.toList(row.iterator());
 				int c = 0;
 				Datos datos = new Datos();
 				for(Cell cell: celdas) {
@@ -73,12 +74,13 @@ public class ReadExcelFileSeriviceImpl implements IReadExcelFileService {
 						default:
 							break;
 					}
+					
 					datoService.save(datos);
 					estado = true;
 					c++;
 				}
 			}
-			k++;
+			k+=1;
 		}
 		libro.close();
 		return estado;
